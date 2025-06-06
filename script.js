@@ -4,6 +4,7 @@ const startButton = document.getElementById('startButton');
 const cutSound = document.getElementById("cutSound");
 const endButton = document.getElementById("endButton");
 const finalMessage = document.getElementById("finalMessage");
+const mobileHint = document.getElementById("mobileHint");
 
 const maxX = window.innerWidth / 2 - container.offsetWidth / 2;
 const maxY = window.innerHeight / 2 - container.offsetHeight / 2;
@@ -71,6 +72,10 @@ document.addEventListener('touchend', resetPosition);
 // Başta endButton gizli
 endButton.style.display = "none";
 
+function isMobile() {
+  return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+}
+
 // "Beni Kes" butonuna tıklayınca:
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
@@ -79,6 +84,13 @@ startButton.addEventListener("click", () => {
 
   // Bitir butonunu göster
   endButton.style.display = "inline-block";
+
+  if (isMobile()) {
+    mobileHint.style.display = "block";
+    setTimeout(() => {
+      mobileHint.style.display = "none";
+    }, 4000);
+  }
 });
 
 // "Bitir" butonuna tıklanınca:
