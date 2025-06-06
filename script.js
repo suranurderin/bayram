@@ -5,6 +5,9 @@ const cutSound = document.getElementById("cutSound");
 const endButton = document.getElementById("endButton");
 const finalMessage = document.getElementById("finalMessage");
 
+const maxX = window.innerWidth / 2 - container.offsetWidth / 2;
+const maxY = window.innerHeight / 2 - container.offsetHeight / 2;
+
 let isChasing = false;
 
 startButton.addEventListener("click", () => {
