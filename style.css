@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+#escapeContainer img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: glowImage 3s ease-in-out infinite;
+}
+
+@keyframes glowImage {
+  0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 60px rgba(255, 255, 255, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+}
+
+#escapeContainer {
+  transition: transform 0.15s ease;
+}
+
+#startButton {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #ff1a1a;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow:
+    0 0 5px #ff4d4d,
+    0 0 10px #ff1a1a,
+    0 0 15px #cc0000;
+  animation: redGlow 2s ease-in-out infinite alternate;
+}
+
+#scissor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 999;
+  transition: transform 0.05s linear;
+  display: none;
+}
+
+/* Bitir butonu */
+.end-btn {
+  display: none; /* Başlangıçta gizli */
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #fe0000, #fd0267);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff4d4d;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.end-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ffcc00;
+}
+
+#finalMessage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #660033, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5.5rem;
+  font-weight: 800;
+  color: #660033; /* Yazı PEMBE */
+  text-align: center;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff,
+    0 0 60px #fff;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  animation: shimmer 4s infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #fff,
+      0 0 40px #fff,
+      0 0 50px #fff;
+    transform: scale(1);
+  }
+  100% {
+    text-shadow:
+      0 0 20px #fff,
+      0 0 30px #fff,
+      0 0 40px #fff,
+      0 0 50px #fff,
+      0 0 60px #fff;
+    transform: scale(1.05);
+  }
+}
